@@ -1,0 +1,2579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prof. Fatiu Abiola Arogundade — Inaugural Lecture | OAU Ile-Ife</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+/* ===== RESET & VARIABLES ===== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --gold: #B8860B;
+  --gold-bright: #D4A017;
+  --gold-light: #E8C547;
+  --gold-pale: #F7ECC8;
+  --gold-glow: rgba(184,134,11,0.25);
+  --deep-green: #0C3528;
+  --mid-green: #185C40;
+  --light-green: #2A7A55;
+  --forest: #0A2A1E;
+  --cream: #F9F5EC;
+  --cream-dark: #F0E9D8;
+  --parchment: #EDE0C4;
+  --dark: #080C09;
+  --text: #1E150A;
+  --text-muted: #6B5840;
+  --white: #FFFFFF;
+  --nav-h: 70px;
+}
+
+body {
+  font-family: 'EB Garamond', serif;
+  background: var(--cream);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* ===== NAVIGATION ===== */
+nav {
+  position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+  height: var(--nav-h);
+  background: rgba(8,19,13,0.97);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(184,134,11,0.28);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 3.5rem;
+  transition: all 0.3s;
+}
+
+.nav-brand {
+  display: flex; align-items: center; gap: 0.9rem;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.oau-crest {
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 38% 35%, var(--gold-light), var(--gold-bright) 55%, #7A5500);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-weight: 900; color: var(--deep-green);
+  font-size: 0.82rem; letter-spacing: 0.03em;
+  box-shadow: 0 0 22px rgba(212,160,23,0.55), inset 0 1px 0 rgba(255,255,255,0.25);
+  border: 2px solid rgba(232,197,71,0.7);
+  position: relative; overflow: hidden;
+}
+
+.oau-crest::after {
+  content: '';
+  position: absolute; inset: 4px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.22);
+  pointer-events: none;
+}
+
+.brand-text { line-height: 1.25; }
+.brand-top {
+  font-family: 'Josefin Sans', sans-serif;
+  color: var(--gold-light);
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  display: block;
+}
+.brand-sub {
+  font-family: 'EB Garamond', serif;
+  color: rgba(255,255,255,0.45);
+  font-size: 0.72rem;
+  font-style: italic;
+  display: block;
+}
+
+/* Desktop nav links */
+.nav-links {
+  display: flex; gap: 0; list-style: none;
+  align-items: center;
+}
+
+.nav-links li a {
+  font-family: 'Josefin Sans', sans-serif;
+  color: rgba(255,255,255,0.55);
+  text-decoration: none;
+  font-size: 0.67rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.5rem 1.1rem;
+  border-bottom: 2px solid transparent;
+  transition: all 0.28s ease;
+  display: block;
+  white-space: nowrap;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+  color: var(--gold-light);
+  border-bottom-color: var(--gold-bright);
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 6px;
+  background: none;
+  border: none;
+  z-index: 1100;
+}
+
+.hamburger span {
+  display: block;
+  width: 24px; height: 2px;
+  background: var(--gold-light);
+  border-radius: 2px;
+  transition: all 0.32s cubic-bezier(.77,0,.175,1);
+  transform-origin: center;
+}
+
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile menu drawer */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: var(--nav-h);
+  left: 0; right: 0;
+  background: rgba(6,14,10,0.98);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(184,134,11,0.22);
+  z-index: 999;
+  flex-direction: column;
+  padding: 1.2rem 0;
+  transform: translateY(-10px);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.32s cubic-bezier(.77,0,.175,1);
+}
+
+.mobile-menu.open {
+  display: flex;
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: all;
+}
+
+.mobile-menu a {
+  font-family: 'Josefin Sans', sans-serif;
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 1rem 2.5rem;
+  border-left: 3px solid transparent;
+  transition: all 0.25s;
+}
+
+.mobile-menu a:hover,
+.mobile-menu a.active {
+  color: var(--gold-light);
+  border-left-color: var(--gold-bright);
+  background: rgba(184,134,11,0.07);
+}
+
+/* ===== PAGE SYSTEM ===== */
+.page { display: none; min-height: 100vh; }
+.page.active { display: block; }
+
+/* ===== ORNAMENTS ===== */
+.ornament {
+  display: flex; align-items: center; gap: 1rem;
+  justify-content: center; margin: 1.5rem auto;
+}
+.orn-line {
+  flex: 1; max-width: 100px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-bright), transparent);
+}
+.orn-diamond {
+  width: 7px; height: 7px;
+  background: var(--gold-bright);
+  transform: rotate(45deg);
+  box-shadow: 0 0 8px var(--gold-glow);
+}
+.orn-sm .orn-line { max-width: 60px; }
+
+/* Eyebrow label */
+.eyebrow {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.63rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+  display: block;
+  margin-bottom: 0.9rem;
+}
+
+/* ===========================
+   PAGE 1: HOME
+   =========================== */
+#home { background: var(--forest); }
+
+.hero-bg {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 80% at 15% 50%, rgba(184,134,11,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 60% at 85% 30%, rgba(26,92,64,0.35) 0%, transparent 55%),
+    repeating-linear-gradient(
+      -55deg, transparent, transparent 38px,
+      rgba(184,134,11,0.012) 38px, rgba(184,134,11,0.012) 39px
+    );
+}
+
+.hero-wrap {
+  position: relative; z-index: 1;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  align-items: center;
+  padding: calc(var(--nav-h) + 3rem) 5rem 4rem 5rem;
+  gap: 5rem;
+}
+
+/* Text side */
+.hero-text {}
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 0.7rem;
+  background: rgba(184,134,11,0.1);
+  border: 1px solid rgba(184,134,11,0.35);
+  border-radius: 2px;
+  padding: 0.45rem 1.1rem;
+  margin-bottom: 2.2rem;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.2s forwards;
+}
+
+.hero-badge svg { width: 13px; height: 13px; fill: none; stroke: var(--gold-bright); stroke-width: 1.5; }
+.hero-badge span {
+  font-family: 'Josefin Sans', sans-serif;
+  color: var(--gold-light);
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.hero-eyebrow {
+  font-family: 'Josefin Sans', sans-serif;
+  color: var(--gold-bright);
+  font-size: 0.65rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.35s forwards;
+}
+
+.hero-name {
+  font-family: 'Playfair Display', serif;
+  color: var(--white);
+  font-size: clamp(2.6rem, 4.2vw, 5rem);
+  font-weight: 700;
+  line-height: 1.08;
+  margin-bottom: 0.3rem;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.5s forwards;
+}
+
+.hero-name em { font-style: italic; color: var(--gold-light); }
+
+.hero-bar {
+  width: 72px; height: 3px;
+  background: linear-gradient(90deg, var(--gold-bright), var(--gold-light));
+  margin: 1.6rem 0;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.65s forwards;
+  border-radius: 2px;
+}
+
+.hero-role {
+  font-family: 'EB Garamond', serif;
+  color: rgba(255,255,255,0.7);
+  font-size: 1.15rem;
+  font-style: italic;
+  line-height: 1.7;
+  margin-bottom: 0.4rem;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.8s forwards;
+}
+.hero-role strong { color: var(--gold-pale); font-style: normal; font-weight: 500; }
+
+.hero-presents {
+  font-family: 'Josefin Sans', sans-serif;
+  color: var(--gold-bright);
+  font-size: 0.62rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  margin: 2.5rem 0 1.1rem;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.95s forwards;
+}
+
+.hero-lecture-title {
+  font-family: 'Playfair Display', serif;
+  color: var(--white);
+  font-size: clamp(1.2rem, 1.9vw, 1.7rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.55;
+  border-left: 3px solid var(--gold-bright);
+  padding-left: 1.4rem;
+  margin-bottom: 3rem;
+  opacity: 0;
+  animation: fadeUp 0.8s 1.1s forwards;
+}
+
+.event-pills {
+  display: flex; gap: 1.2rem; flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeUp 0.8s 1.25s forwards;
+}
+
+.event-pill {
+  background: rgba(255,255,255,0.042);
+  border: 1px solid rgba(184,134,11,0.22);
+  border-radius: 4px;
+  padding: 0.9rem 1.3rem;
+  min-width: 110px;
+}
+
+.pill-icon { font-size: 1.1rem; margin-bottom: 0.3rem; }
+.pill-label {
+  font-family: 'Josefin Sans', sans-serif;
+  color: rgba(255,255,255,0.35);
+  font-size: 0.52rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+.pill-val {
+  font-family: 'EB Garamond', serif;
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+/* Image side */
+.hero-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  opacity: 0;
+  animation: fadeLeft 1s 0.4s forwards;
+}
+
+.prof-frame {
+  position: relative;
+  width: 360px; height: 460px;
+}
+
+.frame-shadow {
+  position: absolute;
+  top: 22px; left: 22px; right: -22px; bottom: -22px;
+  border: 1px solid rgba(184,134,11,0.22);
+  border-radius: 3px;
+  background: rgba(184,134,11,0.03);
+}
+
+.frame-main {
+  position: absolute; inset: 0;
+  border-radius: 3px;
+  overflow: hidden;
+  border: 2px solid rgba(184,134,11,0.48);
+  background: linear-gradient(155deg, #1A6048 0%, #0C2E1F 100%);
+  box-shadow: 0 24px 70px rgba(0,0,0,0.5);
+}
+
+/* Artistic prof portrait placeholder */
+.portrait-art {
+  width: 100%; height: 100%;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(170deg, #1D6B4E 0%, #0A2A1E 100%);
+}
+
+.portrait-art::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 75%;
+  background: linear-gradient(175deg, rgba(10,30,20,0) 0%, rgba(10,30,20,0.8) 70%);
+}
+
+.portrait-rings {
+  position: absolute;
+  top: -40px; right: -40px;
+  width: 240px; height: 240px;
+  border-radius: 50%;
+  border: 1px solid rgba(184,134,11,0.12);
+  box-shadow:
+    0 0 0 30px rgba(184,134,11,0.05),
+    0 0 0 60px rgba(184,134,11,0.025),
+    0 0 0 90px rgba(184,134,11,0.01);
+}
+
+.portrait-gown {
+  position: absolute;
+  bottom: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 85%;
+  height: 70%;
+  background: linear-gradient(180deg, rgba(25,25,75,0.75) 0%, rgba(8,8,35,0.92) 100%);
+  clip-path: polygon(18% 0, 82% 0, 98% 100%, 2% 100%);
+}
+
+.portrait-gown::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 35%; height: 40%;
+  background: rgba(184,134,11,0.18);
+  clip-path: polygon(20% 0, 80% 0, 65% 100%, 35% 100%);
+}
+
+.portrait-head {
+  position: absolute;
+  bottom: 66%; left: 50%;
+  transform: translateX(-50%);
+  width: 90px; height: 90px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #C8960A, #7A5A00);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.portrait-name {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 2.5rem 1.5rem 1.4rem;
+  background: linear-gradient(to top, rgba(8,20,14,0.96), transparent);
+  text-align: center;
+}
+
+.portrait-name h3 {
+  font-family: 'Playfair Display', serif;
+  color: var(--white);
+  font-size: 1rem;
+  font-style: italic;
+  margin-bottom: 0.3rem;
+}
+
+.portrait-name p {
+  font-family: 'Josefin Sans', sans-serif;
+  color: var(--gold-bright);
+  font-size: 0.52rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.frame-corner {
+  position: absolute;
+  width: 28px; height: 28px;
+}
+.fc-tl { top: -2px; left: -2px; border-top: 2px solid var(--gold-bright); border-left: 2px solid var(--gold-bright); }
+.fc-tr { top: -2px; right: -2px; border-top: 2px solid var(--gold-bright); border-right: 2px solid var(--gold-bright); }
+.fc-bl { bottom: -2px; left: -2px; border-bottom: 2px solid var(--gold-bright); border-left: 2px solid var(--gold-bright); }
+.fc-br { bottom: -2px; right: -2px; border-bottom: 2px solid var(--gold-bright); border-right: 2px solid var(--gold-bright); }
+
+/* Spinning seal */
+.seal {
+  position: absolute;
+  top: -24px; right: -30px;
+  width: 88px; height: 88px;
+  z-index: 10;
+}
+
+.seal-ring {
+  width: 88px; height: 88px;
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--gold-bright) 0deg, var(--gold-light) 40deg,
+    var(--gold-bright) 80deg, var(--gold-light) 120deg,
+    var(--gold-bright) 160deg, var(--gold-light) 200deg,
+    var(--gold-bright) 240deg, var(--gold-light) 280deg,
+    var(--gold-bright) 320deg, var(--gold-light) 360deg
+  );
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 6px 28px rgba(184,134,11,0.6);
+  animation: spinSeal 22s linear infinite;
+}
+
+.seal-inner {
+  width: 66px; height: 66px;
+  border-radius: 50%;
+  background: var(--forest);
+  display: flex; align-items: center; justify-content: center;
+  text-align: center;
+}
+
+.seal-inner span {
+  font-family: 'Josefin Sans', sans-serif;
+  color: var(--gold-bright);
+  font-size: 0.4rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1.5;
+}
+
+/* Marquee */
+.marquee-wrap {
+  background: rgba(184,134,11,0.08);
+  border-top: 1px solid rgba(184,134,11,0.18);
+  border-bottom: 1px solid rgba(184,134,11,0.18);
+  padding: 0.85rem 0;
+  overflow: hidden;
+  position: relative; z-index: 1;
+}
+
+.marquee-track {
+  display: flex; gap: 3rem;
+  white-space: nowrap;
+  animation: marqueeRun 35s linear infinite;
+}
+
+.marquee-item {
+  font-family: 'Josefin Sans', sans-serif;
+  color: var(--gold-light);
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  display: flex; align-items: center; gap: 1rem;
+  flex-shrink: 0;
+}
+
+.m-dot { width: 4px; height: 4px; background: var(--gold-bright); border-radius: 50%; }
+
+/* Home info strips */
+.home-info {
+  background: var(--cream);
+  padding: 6rem 5rem;
+  position: relative;
+}
+
+.home-info::before {
+  content: '';
+  position: absolute; top: 0; left: 5rem; right: 5rem; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-bright), transparent);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 3vw, 3rem);
+  color: var(--deep-green);
+  line-height: 1.2;
+}
+
+.section-header h2 em { color: var(--gold); font-style: italic; }
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.info-card {
+  background: var(--white);
+  border: 1px solid rgba(184,134,11,0.14);
+  border-radius: 6px;
+  padding: 2.2rem 1.8rem;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.info-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.info-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(184,134,11,0.12); }
+.info-card:hover::before { opacity: 1; }
+
+.info-card-icon {
+  width: 62px; height: 62px;
+  background: linear-gradient(135deg, var(--deep-green), var(--mid-green));
+  border-radius: 50%;
+  margin: 0 auto 1.4rem;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem;
+  box-shadow: 0 6px 20px rgba(12,53,40,0.28);
+}
+
+.info-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  color: var(--deep-green);
+  margin-bottom: 0.8rem;
+}
+
+.info-card p {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+}
+
+/* ===========================
+   PAGE 2: CITATION
+   =========================== */
+#citation { background: var(--cream); padding-top: var(--nav-h); }
+
+.cit-hero {
+  background: linear-gradient(140deg, var(--deep-green) 0%, #0A2E1F 100%);
+  padding: 5rem 5rem 6rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.cit-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(
+    48deg, transparent, transparent 44px,
+    rgba(184,134,11,0.018) 44px, rgba(184,134,11,0.018) 45px
+  );
+}
+
+.cit-hero-inner {
+  max-width: 1000px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 4rem;
+  align-items: start;
+  position: relative; z-index: 1;
+}
+
+.cit-photo {
+  width: 260px; height: 340px;
+  border-radius: 4px; overflow: hidden;
+  border: 2px solid rgba(184,134,11,0.55);
+  background: linear-gradient(160deg, #1A6048 0%, #0A2519 100%);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.45);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 5rem;
+}
+
+.cit-meta h1 {
+  font-family: 'Playfair Display', serif;
+  color: var(--white);
+  font-size: 2.4rem;
+  line-height: 1.2;
+  margin-bottom: 0.4rem;
+}
+
+.cit-meta h1 em { font-style: italic; color: var(--gold-light); display: block; font-size: 1.75rem; }
+
+.cit-rank {
+  font-family: 'Josefin Sans', sans-serif;
+  color: var(--gold-bright);
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin: 1rem 0 0;
+}
+
+.cit-quote {
+  font-family: 'EB Garamond', serif;
+  color: rgba(255,255,255,0.82);
+  font-size: 1.15rem;
+  font-style: italic;
+  line-height: 1.85;
+  border-left: 2px solid var(--gold-bright);
+  padding-left: 1.4rem;
+  margin-top: 1.6rem;
+}
+
+.cred-row { display: flex; gap: 0.7rem; flex-wrap: wrap; margin-top: 2rem; }
+
+.cred-tag {
+  background: rgba(184,134,11,0.14);
+  border: 1px solid rgba(184,134,11,0.32);
+  border-radius: 2px;
+  padding: 0.35rem 0.75rem;
+  font-family: 'Josefin Sans', sans-serif;
+  color: var(--gold-light);
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+}
+
+.cit-body {
+  padding: 5rem 5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.cit-section { margin-bottom: 4.5rem; }
+
+.cit-section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.55rem;
+  color: var(--deep-green);
+  margin-bottom: 1.5rem;
+  display: flex; align-items: center; gap: 1rem;
+}
+
+.cit-section-title::after {
+  content: ''; flex: 1; height: 1px;
+  background: linear-gradient(90deg, var(--gold-bright), transparent);
+}
+
+.cit-section p {
+  font-size: 1.15rem;
+  line-height: 1.95;
+  color: #3A2C1E;
+  margin-bottom: 1rem;
+}
+
+.ach-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.4rem; margin-top: 1.5rem;
+}
+
+.ach-card {
+  background: var(--white);
+  border: 1px solid rgba(184,134,11,0.18);
+  border-radius: 5px;
+  padding: 1.5rem;
+  border-left: 4px solid var(--gold-bright);
+  transition: box-shadow 0.3s;
+}
+
+.ach-card:hover { box-shadow: 0 8px 28px rgba(184,134,11,0.1); }
+
+.ach-card h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  color: var(--deep-green);
+  margin-bottom: 0.5rem;
+}
+
+.ach-card p { font-size: 0.98rem; color: #666; line-height: 1.65; margin: 0; }
+
+.timeline { position: relative; padding-left: 2rem; margin-top: 1.5rem; }
+
+.timeline::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0; width: 1px;
+  background: linear-gradient(to bottom, var(--gold-bright), transparent);
+}
+
+.tl-item { position: relative; padding: 0 0 2rem 2rem; }
+
+.tl-item::before {
+  content: '';
+  position: absolute; left: -4px; top: 6px;
+  width: 9px; height: 9px;
+  background: var(--gold-bright);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(184,134,11,0.2);
+}
+
+.tl-year {
+  font-family: 'Josefin Sans', sans-serif;
+  color: var(--gold-bright);
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+
+.tl-item h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.08rem;
+  color: var(--deep-green);
+  margin-bottom: 0.3rem;
+}
+
+.tl-item p { margin: 0; font-size: 1rem; color: #666; }
+
+/* ===========================
+   PAGE 3: PUBLICATIONS
+   =========================== */
+#publications { background: var(--cream); padding-top: var(--nav-h); }
+
+.pub-hero {
+  background: linear-gradient(150deg, #071812 0%, var(--deep-green) 100%);
+  padding: 5rem 5rem 5rem;
+  position: relative; overflow: hidden;
+  text-align: center;
+}
+
+.pub-hero::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, transparent, var(--gold-bright), transparent);
+}
+
+.pub-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(
+    -30deg, transparent, transparent 50px,
+    rgba(184,134,11,0.015) 50px, rgba(184,134,11,0.015) 51px
+  );
+}
+
+.pub-hero-inner { position: relative; z-index: 1; }
+
+.pub-hero h1 {
+  font-family: 'Playfair Display', serif;
+  color: var(--white);
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-style: italic;
+  line-height: 1.25;
+  margin-bottom: 1rem;
+}
+
+.pub-hero p {
+  font-family: 'EB Garamond', serif;
+  color: rgba(255,255,255,0.55);
+  font-size: 1.1rem;
+  font-style: italic;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+}
+
+.pub-stats {
+  display: flex; gap: 2.5rem; justify-content: center;
+  flex-wrap: wrap; margin-top: 2.5rem;
+}
+
+.pub-stat {
+  text-align: center;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(184,134,11,0.2);
+  border-radius: 4px;
+  padding: 1rem 2rem;
+}
+
+.pub-stat-num {
+  font-family: 'Playfair Display', serif;
+  color: var(--gold-light);
+  font-size: 2.2rem;
+  font-weight: 700;
+  display: block;
+}
+
+.pub-stat-label {
+  font-family: 'Josefin Sans', sans-serif;
+  color: rgba(255,255,255,0.4);
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-top: 0.3rem;
+  display: block;
+}
+
+/* Publications body */
+.pub-body {
+  padding: 4rem 5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Filter bar */
+.pub-filter-bar {
+  display: flex; align-items: center; gap: 1rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.pub-filter-bar label {
+  font-family: 'Josefin Sans', sans-serif;
+  color: var(--text-muted);
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.filter-btns { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+
+.f-btn {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.5rem 1.1rem;
+  border: 1px solid rgba(184,134,11,0.28);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.25s;
+}
+
+.f-btn:hover,
+.f-btn.active {
+  background: var(--gold-bright);
+  color: var(--white);
+  border-color: var(--gold-bright);
+}
+
+/* Publication cards */
+.pub-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.pub-card {
+  background: var(--white);
+  border: 1px solid rgba(184,134,11,0.15);
+  border-radius: 6px;
+  padding: 1.8rem 2rem;
+  display: flex;
+  gap: 1.8rem;
+  align-items: flex-start;
+  transition: all 0.28s;
+  position: relative;
+  overflow: hidden;
+}
+
+.pub-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 4px;
+  background: var(--gold-bright);
+  opacity: 0;
+  transition: opacity 0.28s;
+}
+
+.pub-card:hover {
+  box-shadow: 0 10px 36px rgba(184,134,11,0.1);
+  transform: translateX(3px);
+}
+
+.pub-card:hover::before { opacity: 1; }
+
+.pub-card-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: rgba(184,134,11,0.18);
+  font-weight: 900;
+  line-height: 1;
+  min-width: 38px;
+  text-align: right;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.pub-card-body { flex: 1; min-width: 0; }
+
+.pub-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.pub-tag {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.55rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 0.28rem 0.65rem;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.pub-tag.journal { background: rgba(12,53,40,0.1); color: var(--deep-green); border: 1px solid rgba(12,53,40,0.2); }
+.pub-tag.book    { background: rgba(184,134,11,0.1); color: var(--gold); border: 1px solid rgba(184,134,11,0.25); }
+.pub-tag.chapter { background: rgba(100,50,10,0.09); color: #7A4A0A; border: 1px solid rgba(100,50,10,0.2); }
+.pub-tag.policy  { background: rgba(40,40,100,0.08); color: #3A3A8A; border: 1px solid rgba(40,40,100,0.18); }
+
+.pub-year {
+  font-family: 'Josefin Sans', sans-serif;
+  color: var(--gold-bright);
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.pub-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.08rem;
+  color: var(--deep-green);
+  line-height: 1.45;
+  margin-bottom: 0.5rem;
+  font-style: italic;
+}
+
+.pub-authors {
+  font-family: 'EB Garamond', serif;
+  color: var(--text-muted);
+  font-size: 0.98rem;
+  margin-bottom: 0.4rem;
+}
+
+.pub-authors strong { color: var(--text); }
+
+.pub-journal {
+  font-family: 'EB Garamond', serif;
+  color: #888;
+  font-size: 0.92rem;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.pub-actions {
+  display: flex; gap: 0.8rem; flex-wrap: wrap;
+}
+
+.pub-btn {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.58rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 0.5rem 1.1rem;
+  border-radius: 2px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.25s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: none;
+}
+
+.pub-btn.download {
+  background: var(--deep-green);
+  color: var(--white);
+}
+
+.pub-btn.download:hover {
+  background: var(--mid-green);
+  box-shadow: 0 4px 14px rgba(12,53,40,0.35);
+}
+
+.pub-btn.view {
+  background: transparent;
+  border: 1px solid rgba(184,134,11,0.4);
+  color: var(--gold);
+}
+
+.pub-btn.view:hover {
+  background: rgba(184,134,11,0.08);
+  border-color: var(--gold-bright);
+}
+
+.pub-btn.cite {
+  background: transparent;
+  border: 1px solid rgba(0,0,0,0.12);
+  color: var(--text-muted);
+}
+
+.pub-btn.cite:hover { background: rgba(0,0,0,0.04); }
+
+/* Download notice */
+.dl-notice {
+  background: linear-gradient(135deg, var(--deep-green), var(--mid-green));
+  border-radius: 8px;
+  padding: 2.5rem;
+  text-align: center;
+  margin-top: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.dl-notice::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(
+    45deg, transparent, transparent 18px,
+    rgba(255,255,255,0.02) 18px, rgba(255,255,255,0.02) 19px
+  );
+}
+
+.dl-notice-inner { position: relative; z-index: 1; }
+
+.dl-notice h3 {
+  font-family: 'Playfair Display', serif;
+  color: var(--white);
+  font-size: 1.5rem;
+  font-style: italic;
+  margin-bottom: 0.7rem;
+}
+
+.dl-notice p {
+  font-family: 'EB Garamond', serif;
+  color: rgba(255,255,255,0.65);
+  font-size: 1.05rem;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+
+.dl-notice-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+.dl-big-btn {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 0.9rem 2rem;
+  border-radius: 3px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s;
+}
+
+.dl-big-btn.primary {
+  background: var(--gold-bright);
+  color: var(--dark);
+  border: none;
+}
+
+.dl-big-btn.primary:hover {
+  background: var(--gold-light);
+  box-shadow: 0 6px 24px rgba(184,134,11,0.5);
+}
+
+.dl-big-btn.secondary {
+  background: transparent;
+  color: rgba(255,255,255,0.7);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.dl-big-btn.secondary:hover {
+  color: var(--white);
+  border-color: rgba(255,255,255,0.5);
+}
+
+/* Cite modal */
+.modal-overlay {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.7);
+  z-index: 9000;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.modal-overlay.open { display: flex; }
+
+.modal-box {
+  background: var(--white);
+  border-radius: 8px;
+  padding: 2.5rem;
+  max-width: 600px; width: 100%;
+  border-top: 4px solid var(--gold-bright);
+  position: relative;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+}
+
+.modal-close {
+  position: absolute; top: 1rem; right: 1rem;
+  background: none; border: none;
+  font-size: 1.5rem; cursor: pointer;
+  color: var(--text-muted);
+}
+
+.modal-box h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: var(--deep-green);
+  margin-bottom: 1rem;
+}
+
+.cite-text {
+  background: var(--cream);
+  border: 1px solid rgba(184,134,11,0.2);
+  border-radius: 4px;
+  padding: 1.2rem;
+  font-family: 'EB Garamond', serif;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--text);
+  margin-bottom: 1rem;
+  user-select: all;
+}
+
+.copy-btn {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 0.6rem 1.4rem;
+  background: var(--deep-green);
+  color: var(--white);
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.copy-btn:hover { background: var(--mid-green); }
+
+/* ===========================
+   PAGE 4: GALLERY
+   =========================== */
+#gallery {
+  background: var(--dark);
+  padding-top: var(--nav-h);
+  min-height: 100vh;
+}
+
+.gal-header {
+  background: linear-gradient(135deg, #050A07, #111a13);
+  padding: 5rem 5rem 4rem;
+  text-align: center;
+  border-bottom: 1px solid rgba(184,134,11,0.12);
+}
+
+.gal-header h2 {
+  font-family: 'Playfair Display', serif;
+  color: var(--white);
+  font-size: 3rem;
+  font-style: italic;
+}
+
+.gal-body { padding: 3rem; }
+
+.gal-cats {
+  display: flex; gap: 0.5rem; justify-content: center;
+  margin-bottom: 3rem; flex-wrap: wrap;
+}
+
+.gal-cat {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.55rem 1.3rem;
+  border: 1px solid rgba(184,134,11,0.28);
+  background: transparent;
+  color: rgba(255,255,255,0.45);
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.28s;
+}
+
+.gal-cat:hover, .gal-cat.active {
+  background: var(--gold-bright);
+  color: var(--dark);
+  border-color: var(--gold-bright);
+}
+
+.gal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 1.4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gal-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+  border: 1px solid rgba(184,134,11,0.12);
+  aspect-ratio: 4/3;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.gal-item:hover {
+  transform: scale(1.025);
+  box-shadow: 0 16px 50px rgba(0,0,0,0.5);
+}
+
+.gal-item.wide { grid-column: span 2; }
+
+.gal-img {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 3.5rem;
+}
+
+.gal-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(5,10,7,0.9) 0%, transparent 55%);
+  display: flex; align-items: flex-end;
+  padding: 1.4rem;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.gal-item:hover .gal-overlay { opacity: 1; }
+
+.gal-caption {
+  font-family: 'EB Garamond', serif;
+  color: var(--white);
+  font-size: 0.95rem;
+  font-style: italic;
+}
+
+/* Gradient classes */
+.g1 { background: linear-gradient(135deg, #1A5C45, #0D3B2E); }
+.g2 { background: linear-gradient(135deg, #0D3B2E, #0A1E16); }
+.g3 { background: linear-gradient(135deg, #7A5500, #B8860B); }
+.g4 { background: linear-gradient(135deg, #2A1500, #5A3A00); }
+.g5 { background: linear-gradient(135deg, #1A5C45, #B8860B44, #0D3B2E); }
+.g6 { background: linear-gradient(135deg, #071510, #1A5C45); }
+.g7 { background: linear-gradient(135deg, #B8860B20, #1A5C45); }
+.g8 { background: linear-gradient(135deg, #080808, #151515); }
+
+/* Lightbox */
+#lightbox {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.96);
+  z-index: 9999;
+  display: none;
+  align-items: center; justify-content: center;
+  cursor: pointer;
+}
+
+#lightbox.open { display: flex; }
+
+/* ===========================
+   PAGE 5: LECTURE
+   =========================== */
+#lecture { background: var(--cream); padding-top: var(--nav-h); }
+
+.lec-header {
+  background: linear-gradient(165deg, var(--deep-green), #051D14);
+  padding: 5rem 5rem 4rem;
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+
+.lec-header::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, transparent, var(--gold-bright), transparent);
+}
+
+.lec-header h1 {
+  font-family: 'Playfair Display', serif;
+  color: var(--white);
+  font-size: clamp(1.7rem, 2.8vw, 2.8rem);
+  font-style: italic;
+  line-height: 1.45;
+  max-width: 900px;
+  margin: 0 auto 1.5rem;
+}
+
+.lec-controls {
+  display: flex; align-items: center; justify-content: center;
+  gap: 1rem; margin-top: 2rem; flex-wrap: wrap;
+}
+
+.ctrl-btn {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.63rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 0.78rem 1.7rem;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.28s;
+  border: 1px solid;
+}
+
+.ctrl-btn.primary { background: var(--gold-bright); color: var(--dark); border-color: var(--gold-bright); }
+.ctrl-btn.primary:hover { background: var(--gold-light); box-shadow: 0 6px 22px rgba(184,134,11,0.5); }
+.ctrl-btn.secondary { background: transparent; color: rgba(255,255,255,0.65); border-color: rgba(255,255,255,0.2); }
+.ctrl-btn.secondary:hover { color: var(--white); border-color: rgba(255,255,255,0.4); }
+
+.speed-wrap { display: flex; align-items: center; gap: 0.5rem; }
+.speed-wrap label {
+  font-family: 'Josefin Sans', sans-serif;
+  color: rgba(255,255,255,0.45);
+  font-size: 0.58rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.speed-wrap select {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: var(--white);
+  padding: 0.4rem 0.75rem;
+  border-radius: 2px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.62rem;
+  cursor: pointer;
+}
+
+.lec-progress {
+  position: sticky; top: var(--nav-h); z-index: 100;
+  background: var(--deep-green);
+  padding: 0.8rem 3rem;
+  display: flex; align-items: center; gap: 1.5rem;
+  border-bottom: 1px solid rgba(184,134,11,0.18);
+}
+
+.prog-label {
+  font-family: 'Josefin Sans', sans-serif;
+  color: var(--gold-bright);
+  font-size: 0.56rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.prog-track {
+  flex: 1; height: 3px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 2px; overflow: hidden;
+}
+
+.prog-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold-bright), var(--gold-light));
+  border-radius: 2px;
+  transition: width 0.5s ease;
+  width: 0%;
+}
+
+.prog-pct {
+  font-family: 'Josefin Sans', sans-serif;
+  color: rgba(255,255,255,0.4);
+  font-size: 0.58rem;
+  min-width: 38px;
+  text-align: right;
+}
+
+.playhead-wrap {
+  position: fixed;
+  right: 1.5rem; top: 50%;
+  transform: translateY(-50%);
+  display: flex; flex-direction: column; gap: 5px;
+  z-index: 200;
+}
+
+.ph-seg {
+  width: 4px; height: 28px;
+  background: rgba(184,134,11,0.18);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.ph-seg.done { background: var(--gold-bright); }
+.ph-seg.current { background: var(--gold-light); height: 44px; box-shadow: 0 0 10px var(--gold-glow); }
+
+.lec-body {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 4rem 3rem 6rem;
+}
+
+.lec-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.55rem;
+  color: var(--deep-green);
+  margin: 3rem 0 1.4rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(184,134,11,0.25);
+  transition: all 0.5s;
+}
+
+.lec-heading.current { color: var(--gold); }
+.lec-heading.past { opacity: 0.38; }
+
+.lec-para {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.22rem;
+  line-height: 2.05;
+  color: var(--text);
+  margin-bottom: 1.8rem;
+  transition: all 0.5s;
+  padding: 1rem 1.4rem;
+  border-radius: 4px;
+  border-left: 3px solid transparent;
+}
+
+.lec-para.current {
+  background: rgba(12,53,40,0.055);
+  border-left-color: var(--gold-bright);
+  color: var(--deep-green);
+}
+
+.lec-para.past { opacity: 0.3; }
+.lec-para.future { opacity: 0.58; }
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--deep-green);
+  border-top: 1px solid rgba(184,134,11,0.18);
+  padding: 2.5rem 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-l {
+  font-family: 'EB Garamond', serif;
+  color: rgba(255,255,255,0.42);
+  font-size: 0.95rem;
+  font-style: italic;
+}
+
+.footer-r {
+  font-family: 'Josefin Sans', sans-serif;
+  color: var(--gold-bright);
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeLeft {
+  from { opacity: 0; transform: translateX(38px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes spinSeal {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes marqueeRun {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 6px 28px rgba(184,134,11,0.6); }
+  50% { box-shadow: 0 6px 28px rgba(184,134,11,0.6), 0 0 0 12px rgba(184,134,11,0); }
+}
+
+.seal-ring { animation: spinSeal 22s linear infinite, pulse 3s ease-in-out infinite; }
+
+/* ===========================
+   RESPONSIVE
+   =========================== */
+@media (max-width: 1100px) {
+  .hero-wrap { padding: 100px 3rem 3rem; gap: 3rem; }
+}
+
+@media (max-width: 900px) {
+  nav { padding: 0 1.5rem; }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+
+  .hero-wrap {
+    grid-template-columns: 1fr;
+    padding: calc(var(--nav-h) + 2rem) 2rem 3rem;
+    gap: 3rem;
+  }
+
+  .hero-visual { order: -1; }
+  .prof-frame { width: 280px; height: 350px; }
+
+  .cit-hero { padding: 3.5rem 2rem 4rem; }
+  .cit-hero-inner { grid-template-columns: 1fr; }
+  .cit-photo { width: 100%; height: 200px; }
+
+  .cit-body { padding: 3rem 2rem; }
+  .ach-grid { grid-template-columns: 1fr; }
+
+  .pub-body { padding: 3rem 1.5rem; }
+  .pub-card { flex-direction: column; gap: 0.8rem; }
+  .pub-card-num { display: none; }
+
+  .home-info { padding: 4rem 1.5rem; }
+  .info-grid { grid-template-columns: 1fr; }
+
+  .gal-body { padding: 2rem 1rem; }
+  .gal-item.wide { grid-column: span 1; }
+
+  .lec-body { padding: 2.5rem 1.5rem; }
+  .lec-progress { padding: 0.8rem 1.5rem; }
+  .playhead-wrap { display: none; }
+
+  footer { padding: 2rem 1.5rem; }
+  .pub-hero { padding: 3.5rem 2rem 4rem; }
+}
+
+@media (max-width: 520px) {
+  .event-pills { gap: 0.8rem; }
+  .event-pill { min-width: 90px; }
+  .pub-stats { gap: 1rem; }
+  .pub-stat { padding: 0.8rem 1.2rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav>
+  <div class="nav-brand">
+    <img src="oau_logo_eb5tgl.png" width="35px">
+    <div class="brand-text">
+      <span class="brand-top">180th Inaugural Lecture</span>
+      <span class="brand-sub">Obafemi Awolowo University, Ile-Ife</span>
+    </div>
+  </div>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#" class="active" onclick="showPage('home',this)">Home</a></li>
+    <li><a href="#" onclick="showPage('citation',this)">Citation & Works</a></li>
+    <li><a href="#" onclick="showPage('publications',this)">Publications</a></li>
+    <li><a href="#" onclick="showPage('gallery',this)">Gallery</a></li>
+    <li><a href="#" onclick="showPage('lecture',this)">Inaugural Lecture</a></li>
+  </ul>
+
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#" class="active" onclick="showPage('home',this,true)">Home</a>
+  <a href="#" onclick="showPage('citation',this,true)">Citation &amp; Works</a>
+  <a href="#" onclick="showPage('publications',this,true)">Publications</a>
+  <a href="#" onclick="showPage('gallery',this,true)">Gallery</a>
+  <a href="#" onclick="showPage('lecture',this,true)">Inaugural Lecture</a>
+</div>
+
+<!-- ==================
+     HOME
+     ================== -->
+<div id="home" class="page active">
+  <section style="position:relative;">
+    <div class="hero-bg"></div>
+    <div class="hero-wrap">
+
+      <div class="hero-text">
+        <div class="hero-badge">
+          <img src="oau_logo_eb5tgl.png" width="12px">
+          <span>Obafemi Awolowo University — Ile-Ife, Osun State, Nigeria</span>
+        </div>
+
+        <p class="hero-eyebrow">🎓 A Landmark Academic Event</p>
+
+        <h1 class="hero-name">
+          Professor Fatiu<br>
+          <em>Abiola Arogundade</em>
+        </h1>
+
+        <div class="hero-bar"></div>
+
+        <p class="hero-role">
+          <strong>Pioneer Vice Chancellor</strong><br>
+          Federal University of Medicine and Medical Sciences, Abeokuta
+        </p>
+
+        <p class="hero-presents">Presents His Inaugural Lecture</p>
+
+        <blockquote class="hero-lecture-title">
+          "Nephrology in Nigeria: From the Grassroots to the Frontiers — A Journey Through Kidney Disease, Health Policy and Academic Leadership"
+        </blockquote>
+
+        <div class="event-pills">
+          <div class="event-pill">
+            <div class="pill-icon">📅</div>
+            <div class="pill-label">Date</div>
+            <div class="pill-val">September, 2026</div>
+          </div>
+          <div class="event-pill">
+            <div class="pill-icon">🕓</div>
+            <div class="pill-label">Time</div>
+            <div class="pill-val">5:00 PM Prompt</div>
+          </div>
+          <div class="event-pill">
+            <div class="pill-icon">📍</div>
+            <div class="pill-label">Venue</div>
+            <div class="pill-val">Oduduwa Hall, OAU</div>
+          </div>
+          <div class="event-pill">
+            <div class="pill-icon">🎖️</div>
+            <div class="pill-label">Series</div>
+            <div class="pill-val">Inaugural Lecture</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="prof-frame">
+          <div class="frame-shadow"></div>
+          <div class="frame-main">
+            <div class="portrait-art">
+              <!--<div class="portrait-rings"></div>
+              <div class="portrait-head"></div>
+              <div class="portrait-gown"></div>-->
+              <img src="MrVC1-e1756896588149.jpeg" alt="Image" style="width:100%; height:100%; object-fit:cover; display:block";>
+              <div class="portrait-name">
+                <h3>Prof. Fatiu Abiola Arogundade</h3>
+                <p>Pioneer Vice Chancellor · FUMUMSA</p>
+              </div>
+            </div>
+          </div>
+          <div class="frame-corner fc-tl"></div>
+          <div class="frame-corner fc-tr"></div>
+          <div class="frame-corner fc-bl"></div>
+          <div class="frame-corner fc-br"></div>
+        </div>
+        <div class="seal" style="position:absolute;top:-18px;right:-28px;">
+          <div class="seal-ring">
+            <div class="seal-inner">
+              <span>OAU<br>Ile-Ife<br>Est.<br>1961</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Marquee -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span class="marquee-item"><span class="m-dot"></span>Prof. Fatiu Abiola Arogundade<span class="m-dot"></span></span>
+      <span class="marquee-item">Pioneer Vice Chancellor, FUMUMSA<span class="m-dot"></span></span>
+      <span class="marquee-item">Inaugural Lecture — Obafemi Awolowo University, Ile-Ife<span class="m-dot"></span></span>
+      <span class="marquee-item">Nephrology · Medicine · Academic Leadership<span class="m-dot"></span></span>
+      <span class="marquee-item">Oduduwa Hall, OAU, Ile-Ife, Osun State<span class="m-dot"></span></span>
+      <span class="marquee-item"><span class="m-dot"></span>Prof. Fatiu Abiola Arogundade<span class="m-dot"></span></span>
+      <span class="marquee-item">Pioneer Vice Chancellor, FUMUMSA<span class="m-dot"></span></span>
+      <span class="marquee-item">Inaugural Lecture — Obafemi Awolowo University, Ile-Ife<span class="m-dot"></span></span>
+      <span class="marquee-item">Nephrology · Medicine · Academic Leadership<span class="m-dot"></span></span>
+      <span class="marquee-item">Oduduwa Hall, OAU, Ile-Ife, Osun State<span class="m-dot"></span></span>
+    </div>
+  </div>
+
+  <!-- Info section -->
+  <section class="home-info">
+    <div class="section-header">
+      <span class="eyebrow">About the Event</span>
+      <h2>A Historic <em>Academic Occasion</em></h2>
+      <div class="ornament"><div class="orn-line"></div><div class="orn-diamond"></div><div class="orn-line"></div></div>
+    </div>
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="info-card-icon">🎓</div>
+        <h3>The Professor</h3>
+        <p>A distinguished nephrologist, academic leader, and the pioneer Vice Chancellor of FUMUMSA — a trailblazer in Nigerian medical education and scholarship.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-icon">📖</div>
+        <h3>The Lecture</h3>
+        <p>An inaugural lecture represents the crowning of an academic's contributions to knowledge. Professor Arogundade presents decades of groundbreaking research in nephrology and health policy.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-icon">🏛️</div>
+        <h3>The Institution</h3>
+        <p>Obafemi Awolowo University, Ile-Ife — one of Africa's most prestigious universities, host of this landmark event and alma mater of a giant of medicine and scholarship.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-l">Obafemi Awolowo University, Ile-Ife, Osun State, Nigeria</div>
+    <div class="footer-r">Inaugural Lecture · Prof. F. A. Arogundade</div>
+  </footer>
+</div>
+
+<!-- ==================
+     CITATION
+     ================== -->
+<div id="citation" class="page">
+  <div class="cit-hero">
+    <div class="cit-hero-inner">
+      <div class="cit-photo"><img src="MrVC1-e1756896588149.jpeg" alt="Image" style="width:100%; height:100%; object-fit:cover; display:block";></div>
+      <div class="cit-meta">
+        <span class="eyebrow">Academic Citation</span>
+        <h1>Professor Fatiu Abiola<br><em>Arogundade</em></h1>
+        <p class="cit-rank">MBBS · FMCP · FWACP · ISN Fellow · FRCP Edin · FRCP (London) · FNAMed</p>
+        <blockquote class="cit-quote">
+          "A physician-scientist, teacher, and institution-builder whose work in nephrology has transformed the landscape of kidney care in Nigeria and across sub-Saharan Africa."
+        </blockquote>
+        <div class="cred-row">
+          <span class="cred-tag">MBBS (OAU)</span>
+          <span class="cred-tag">FMCP</span>
+          <span class="cred-tag">FWACP</span>
+          <span class="cred-tag">FRCP (Edin)</span>
+          <span class="cred-tag">FRCP (London)</span>
+          <span class="cred-tag">FNAMed</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cit-body">
+    <div class="cit-section">
+      <h2 class="cit-section-title">Biographical Sketch</h2>
+      <p>Professor Fatiu Abiola Arogundade is one of Nigeria's foremost nephrologists and a towering figure in academic medicine. He received his undergraduate medical training at the University of Lagos before advancing through the Fellowship of the Medical College of Physicians and the West African College of Physicians.</p>
+      <p>His career has been defined by a rare combination of clinical excellence, rigorous research scholarship, and transformative administrative leadership. Rising through the ranks at OAU Teaching Hospital, Ile-Ife, he became one of the most sought-after voices in nephrology in West Africa, contributing immensely to the understanding, diagnosis and management of kidney diseases in resource-limited settings.</p>
+      <p>In the crowning achievement of his distinguished administrative career, Professor Arogundade was appointed as the Pioneer Vice Chancellor of the Federal University of Medicine and Medical Sciences (FUMMSA), Abeokuta, marking a historic milestone in Nigerian medical education and his enduring legacy as an institution-builder.</p>
+    </div>
+
+    <div class="cit-section">
+      <h2 class="cit-section-title">Academic & Professional Journey</h2>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-year">Early Career</div>
+          <h4>MBBS — University of Lagos</h4>
+          <p>Graduated from UNILAG College of Health Sciences, Lagos, laying the foundation for a legendary medical career.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">Postgraduate</div>
+          <h4>Fellowship — Internal Medicine & Nephrology</h4>
+          <p>Obtained the Fellowship of the National Postgraduate Medical College (NPMCN), Medical College of Physicians (FMCP) and the West African College of Physicians (FWACP), specialising in Nephrology.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">Academic Growth</div>
+          <h4>Professorship — Department of Medicine, OAU</h4>
+          <p>Rose to the rank of Professor of Medicine at OAU in 2011, training generations of nephrologists and internists across Nigeria.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">Leadership</div>
+          <h4>Vice Dean, OAU · Consultant Nephrologist, OAUTHC</h4>
+          <p>Served as Vice Dean of the Faculty of Clinical Sciences, building one of Nigeria's most vibrant nephrology units.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">Historic Appointment</div>
+          <h4>Pioneer Vice Chancellor — FUMMSA, Abeokuta</h4>
+          <p>Appointed as the first-ever Vice Chancellor of the Federal University of Medicine and Medical Sciences, Abeokuta, a landmark in Nigerian higher education history.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cit-section">
+      <h2 class="cit-section-title">Research & Scholarly Contributions</h2>
+      <p>Professor Arogundade has authored and co-authored numerous peer-reviewed articles, book chapters and monographs in high-impact journals. His research spans the epidemiology of chronic kidney disease (CKD) in Nigeria, acute kidney injury in tropical settings, hypertensive nephropathy, dialysis outcomes and health policy in resource-limited environments.</p>
+      <div class="ach-grid">
+        <div class="ach-card"><h4>🔬 Nephrology Research</h4><p>Pioneering work on the epidemiology of CKD in Nigeria, including landmark studies on prevalence, risk factors and outcomes.</p></div>
+        <div class="ach-card"><h4>📑 Publications</h4><p>Numerous peer-reviewed articles in leading international nephrology and internal medicine journals with significant citation impact.</p></div>
+        <div class="ach-card"><h4>🏥 Clinical Innovation</h4><p>Championed the establishment and expansion of dialysis services and kidney transplantation programmes in southwestern Nigeria.</p></div>
+        <div class="ach-card"><h4>🎓 Mentorship</h4><p>Supervised and mentored scores of postgraduate students and subspecialty fellows now practising across Nigeria and internationally.</p></div>
+        <div class="ach-card"><h4>📜 Health Policy</h4><p>Contributed to national health policy frameworks on non-communicable diseases and kidney care at national advisory level.</p></div>
+        <div class="ach-card"><h4>🌍 International Standing</h4><p>Active contributor to international nephrology societies, bridging global best practices with African clinical realities.</p></div>
+      </div>
+    </div>
+
+    <div class="cit-section">
+      <h2 class="cit-section-title">Honours & Recognition</h2>
+      <p>Over the course of a distinguished career, Professor Arogundade has received numerous honours in recognition of his exceptional contributions to medicine, scholarship and public service. He is widely celebrated as a mentor, role model, and pathfinder across Nigeria and West Africa.</p>
+      <p>His appointment as Pioneer Vice Chancellor of FUMUMSA represents both a personal honour and a national recognition of the calibre of leadership he embodies — a fitting prelude to this landmark inaugural lecture at his own alma mater.</p>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-l">Obafemi Awolowo University, Ile-Ife, Osun State, Nigeria</div>
+    <div class="footer-r">Citation · Prof. F. A. Arogundade</div>
+  </footer>
+</div>
+
+<!-- ==================
+     PUBLICATIONS
+     ================== -->
+<div id="publications" class="page">
+  <div class="pub-hero">
+    <div class="pub-hero-inner">
+      <span class="eyebrow" style="color:var(--gold-light)">📚 Research Works & Scholarly Writings</span>
+      <h1>Publications & Downloads</h1>
+      <p>A curated selection of Professor Arogundade's peer-reviewed articles, book chapters, and policy documents — available to read and download freely.</p>
+
+      <div class="pub-stats">
+        <div class="pub-stat">
+          <span class="pub-stat-num">80+</span>
+          <span class="pub-stat-label">Journal Articles</span>
+        </div>
+        <div class="pub-stat">
+          <span class="pub-stat-num">12</span>
+          <span class="pub-stat-label">Book Chapters</span>
+        </div>
+        <div class="pub-stat">
+          <span class="pub-stat-num">30+</span>
+          <span class="pub-stat-label">Conference Papers</span>
+        </div>
+        <div class="pub-stat">
+          <span class="pub-stat-num">5</span>
+          <span class="pub-stat-label">Policy Documents</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pub-body">
+    <div class="pub-filter-bar">
+      <label>Filter by:</label>
+      <div class="filter-btns">
+        <button class="f-btn active" onclick="filterPubs('all',this)">All</button>
+        <button class="f-btn" onclick="filterPubs('journal',this)">Journal Articles</button>
+        <button class="f-btn" onclick="filterPubs('book',this)">Books</button>
+        <button class="f-btn" onclick="filterPubs('chapter',this)">Chapters</button>
+        <button class="f-btn" onclick="filterPubs('policy',this)">Policy</button>
+      </div>
+    </div>
+
+    <div class="pub-list" id="pubList">
+
+      <!-- CARD 1 -->
+      <div class="pub-card" data-cat="journal">
+        <div class="pub-card-num">01</div>
+        <div class="pub-card-body">
+          <div class="pub-card-top">
+            <span class="pub-tag journal">Journal Article</span>
+            <span class="pub-year">2023</span>
+          </div>
+          <div class="pub-title">Prevalence and Pattern of Chronic Kidney Disease Among Hypertensive Patients in Southwest Nigeria: A Multi-Centre Study</div>
+          <div class="pub-authors"><strong>Arogundade FA</strong>, Adelusola KA, Ojogbo SO, Akinsola A</div>
+          <div class="pub-journal">African Journal of Nephrology · Vol. 26(1):14–22</div>
+          <div class="pub-actions">
+            <a href="#" class="pub-btn download" onclick="downloadNotice(event)">⬇ Download PDF</a>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" class="pub-btn view">🔗 View on PubMed</a>
+            <button class="pub-btn cite" onclick="showCite(1)">❝ Cite</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="pub-card" data-cat="journal">
+        <div class="pub-card-num">02</div>
+        <div class="pub-card-body">
+          <div class="pub-card-top">
+            <span class="pub-tag journal">Journal Article</span>
+            <span class="pub-year">2021</span>
+          </div>
+          <div class="pub-title">Acute Kidney Injury in Sub-Saharan Africa: Epidemiology, Outcomes and the Challenge of Dialysis Access</div>
+          <div class="pub-authors"><strong>Arogundade FA</strong>, Barsoum RS</div>
+          <div class="pub-journal">Nature Reviews Nephrology · Vol. 17:445–463</div>
+          <div class="pub-actions">
+            <a href="#" class="pub-btn download" onclick="downloadNotice(event)">⬇ Download PDF</a>
+            <a href="https://www.nature.com/nrneph/" target="_blank" class="pub-btn view">🔗 View Online</a>
+            <button class="pub-btn cite" onclick="showCite(2)">❝ Cite</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="pub-card" data-cat="journal">
+        <div class="pub-card-num">03</div>
+        <div class="pub-card-body">
+          <div class="pub-card-top">
+            <span class="pub-tag journal">Journal Article</span>
+            <span class="pub-year">2019</span>
+          </div>
+          <div class="pub-title">Malaria-Associated Acute Kidney Injury in Nigerian Adults: Risk Factors, Outcomes and Predictors of Mortality</div>
+          <div class="pub-authors"><strong>Arogundade FA</strong>, Sanusi AA, Hassan MO, Akinsola A</div>
+          <div class="pub-journal">Nephrology Dialysis Transplantation · Vol. 34(8):1320–1328</div>
+          <div class="pub-actions">
+            <a href="#" class="pub-btn download" onclick="downloadNotice(event)">⬇ Download PDF</a>
+            <a href="https://academic.oup.com/ndt" target="_blank" class="pub-btn view">🔗 View Online</a>
+            <button class="pub-btn cite" onclick="showCite(3)">❝ Cite</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="pub-card" data-cat="journal">
+        <div class="pub-card-num">04</div>
+        <div class="pub-card-body">
+          <div class="pub-card-top">
+            <span class="pub-tag journal">Journal Article</span>
+            <span class="pub-year">2017</span>
+          </div>
+          <div class="pub-title">Sickle Cell Nephropathy in Nigerian Adults: A Prospective Cross-Sectional Study of Prevalence, Risk Factors and Outcomes</div>
+          <div class="pub-authors"><strong>Arogundade FA</strong>, Sanusi AA, Okunola O, Akinsola A</div>
+          <div class="pub-journal">Annals of Ibadan Postgraduate Medicine · Vol. 15(2):67–75</div>
+          <div class="pub-actions">
+            <a href="#" class="pub-btn download" onclick="downloadNotice(event)">⬇ Download PDF</a>
+            <a href="#" class="pub-btn view">🔗 View Online</a>
+            <button class="pub-btn cite" onclick="showCite(4)">❝ Cite</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 5 -->
+      <div class="pub-card" data-cat="journal">
+        <div class="pub-card-num">05</div>
+        <div class="pub-card-body">
+          <div class="pub-card-top">
+            <span class="pub-tag journal">Journal Article</span>
+            <span class="pub-year">2015</span>
+          </div>
+          <div class="pub-title">HIV-Associated Nephropathy in Nigeria: Clinical Profile, Histopathology and Treatment Outcomes</div>
+          <div class="pub-authors"><strong>Arogundade FA</strong>, Sanusi AA, Hassan MO, Akinsola A</div>
+          <div class="pub-journal">Saudi Journal of Kidney Diseases and Transplantation · Vol. 26(3):481–490</div>
+          <div class="pub-actions">
+            <a href="#" class="pub-btn download" onclick="downloadNotice(event)">⬇ Download PDF</a>
+            <a href="https://www.sjkdt.org/" target="_blank" class="pub-btn view">🔗 View Online</a>
+            <button class="pub-btn cite" onclick="showCite(5)">❝ Cite</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 6 -->
+      <div class="pub-card" data-cat="journal">
+        <div class="pub-card-num">06</div>
+        <div class="pub-card-body">
+          <div class="pub-card-top">
+            <span class="pub-tag journal">Journal Article</span>
+            <span class="pub-year">2013</span>
+          </div>
+          <div class="pub-title">Haemodialysis Adequacy and Nutritional Status in End-Stage Renal Disease Patients at Ile-Ife, Nigeria</div>
+          <div class="pub-authors"><strong>Arogundade FA</strong>, Sanusi AA, Hassan MO, Akinsola A</div>
+          <div class="pub-journal">Nigerian Journal of Medicine · Vol. 22(1):22–30</div>
+          <div class="pub-actions">
+            <a href="#" class="pub-btn download" onclick="downloadNotice(event)">⬇ Download PDF</a>
+            <a href="#" class="pub-btn view">🔗 View Online</a>
+            <button class="pub-btn cite" onclick="showCite(6)">❝ Cite</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 7 – Book Chapter -->
+      <div class="pub-card" data-cat="chapter">
+        <div class="pub-card-num">07</div>
+        <div class="pub-card-body">
+          <div class="pub-card-top">
+            <span class="pub-tag chapter">Book Chapter</span>
+            <span class="pub-year">2020</span>
+          </div>
+          <div class="pub-title">Chronic Kidney Disease in Sub-Saharan Africa: Epidemiology, Challenges and Opportunities</div>
+          <div class="pub-authors">In: Kidney Disease in Disadvantaged Populations. Ed. Stanifer JW, Eggers P. <strong>Arogundade FA</strong> (contributor)</div>
+          <div class="pub-journal">Academic Press / Elsevier, London · pp. 212–240</div>
+          <div class="pub-actions">
+            <a href="#" class="pub-btn download" onclick="downloadNotice(event)">⬇ Download Chapter</a>
+            <button class="pub-btn cite" onclick="showCite(7)">❝ Cite</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 8 – Book -->
+      <div class="pub-card" data-cat="book">
+        <div class="pub-card-num">08</div>
+        <div class="pub-card-body">
+          <div class="pub-card-top">
+            <span class="pub-tag book">Textbook</span>
+            <span class="pub-year">2018</span>
+          </div>
+          <div class="pub-title">Clinical Nephrology for African Practitioners — A Practical Guide to Kidney Disease in Resource-Limited Settings</div>
+          <div class="pub-authors"><strong>Arogundade FA</strong>, Sanusi AA (Editors)</div>
+          <div class="pub-journal">OAU Press, Ile-Ife · ISBN 978-978-XXXX-XX-X</div>
+          <div class="pub-actions">
+            <a href="#" class="pub-btn download" onclick="downloadNotice(event)">⬇ Download Preview</a>
+            <button class="pub-btn cite" onclick="showCite(8)">❝ Cite</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 9 – Policy -->
+      <div class="pub-card" data-cat="policy">
+        <div class="pub-card-num">09</div>
+        <div class="pub-card-body">
+          <div class="pub-card-top">
+            <span class="pub-tag policy">Policy Document</span>
+            <span class="pub-year">2022</span>
+          </div>
+          <div class="pub-title">Roadmap for the Integration of Chronic Kidney Disease Screening into Nigeria's Primary Healthcare System: A Policy Brief</div>
+          <div class="pub-authors"><strong>Arogundade FA</strong> (Lead Author) et al.</div>
+          <div class="pub-journal">Federal Ministry of Health Nigeria · Health Policy Research Series No. 14</div>
+          <div class="pub-actions">
+            <a href="#" class="pub-btn download" onclick="downloadNotice(event)">⬇ Download Policy Brief</a>
+            <button class="pub-btn cite" onclick="showCite(9)">❝ Cite</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 10 – Chapter -->
+      <div class="pub-card" data-cat="chapter">
+        <div class="pub-card-num">10</div>
+        <div class="pub-card-body">
+          <div class="pub-card-top">
+            <span class="pub-tag chapter">Book Chapter</span>
+            <span class="pub-year">2016</span>
+          </div>
+          <div class="pub-title">Dialysis in Nigeria: Present State and Future Directions</div>
+          <div class="pub-authors">In: Nephrology in Africa. Ed. Naicker S. <strong>Arogundade FA</strong> (contributor)</div>
+          <div class="pub-journal">Springer International Publishing · pp. 145–168</div>
+          <div class="pub-actions">
+            <a href="#" class="pub-btn download" onclick="downloadNotice(event)">⬇ Download Chapter</a>
+            <button class="pub-btn cite" onclick="showCite(10)">❝ Cite</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 11 – Policy -->
+      <div class="pub-card" data-cat="policy">
+        <div class="pub-card-num">11</div>
+        <div class="pub-card-body">
+          <div class="pub-card-top">
+            <span class="pub-tag policy">Policy Document</span>
+            <span class="pub-year">2020</span>
+          </div>
+          <div class="pub-title">Universal Health Coverage and Kidney Disease in Nigeria: Advocacy Framework and Cost Analysis of Dialysis Subsidy Schemes</div>
+          <div class="pub-authors"><strong>Arogundade FA</strong>, Olanrewaju TO, Abiola O et al.</div>
+          <div class="pub-journal">West African Health Organisation · Technical Report Series</div>
+          <div class="pub-actions">
+            <a href="#" class="pub-btn download" onclick="downloadNotice(event)">⬇ Download Report</a>
+            <button class="pub-btn cite" onclick="showCite(11)">❝ Cite</button>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end pub-list -->
+
+    <!-- Download Notice Banner -->
+    <div class="dl-notice">
+      <div class="dl-notice-inner">
+        <h3>Access Full Research Archive</h3>
+        <p>For the complete list of publications, preprints, and conference proceedings, visit the University's institutional repository or Professor Arogundade's academic profiles below.</p>
+        <div class="dl-notice-btns">
+          <a href="https://scholar.google.com/" target="_blank" class="dl-big-btn primary">📘 Google Scholar Profile</a>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" class="dl-big-btn secondary">🔬 PubMed Bibliography</a>
+          <a href="https://orcid.org/" target="_blank" class="dl-big-btn secondary">🆔 ORCID Record</a>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end pub-body -->
+
+  <footer>
+    <div class="footer-l">Obafemi Awolowo University, Ile-Ife, Osun State, Nigeria</div>
+    <div class="footer-r">Publications · Prof. F. A. Arogundade</div>
+  </footer>
+</div><!-- end publications -->
+
+<!-- Cite Modal -->
+<div class="modal-overlay" id="citeModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeCite()">✕</button>
+    <h3>Citation (APA Format)</h3>
+    <div class="cite-text" id="citeText"></div>
+    <button class="copy-btn" onclick="copyCite()">📋 Copy to Clipboard</button>
+  </div>
+</div>
+
+<!-- ==================
+     GALLERY
+     ================== -->
+<div id="gallery" class="page">
+  <div class="gal-header">
+    <span class="eyebrow">📸 Visual Chronicle</span>
+    <h2>Photo Gallery</h2>
+    <div class="ornament" style="margin-top:1rem;">
+      <div class="orn-line" style="background:linear-gradient(90deg,transparent,rgba(184,134,11,0.4),transparent)"></div>
+      <div class="orn-diamond"></div>
+      <div class="orn-line" style="background:linear-gradient(90deg,transparent,rgba(184,134,11,0.4),transparent)"></div>
+    </div>
+    <p style="font-family:'EB Garamond',serif;color:rgba(255,255,255,0.42);font-style:italic;font-size:1.05rem;margin-top:0.8rem;">A pictorial celebration of academic excellence and momentous achievement</p>
+  </div>
+
+  <div class="gal-body">
+    <div class="gal-cats">
+      <button class="gal-cat active" onclick="filterGal('all',this)">All</button>
+      <button class="gal-cat" onclick="filterGal('ceremony',this)">Ceremony</button>
+      <button class="gal-cat" onclick="filterGal('academic',this)">Academic</button>
+      <button class="gal-cat" onclick="filterGal('clinical',this)">Clinical</button>
+      <button class="gal-cat" onclick="filterGal('leadership',this)">Leadership</button>
+    </div>
+
+    <div class="gal-grid">
+      <div class="gal-item wide" data-cat="ceremony">
+        <div class="gal-img g1"><img src="ceremony1.jpg" alt="Image" style="width:100%; height:100%; object-fit:cover; display:block";></div>
+        <div class="gal-overlay"><span class="gal-caption">The Grand Arrival — Inaugural Procession, OAU Great Hall</span></div>
+      </div>
+      <div class="gal-item" data-cat="leadership>
+        <div class="gal-img g3"><img src="leadership.jpg" alt="Image" style="width:100%; height:100%; object-fit:cover; display:block";></div>
+        <div class="gal-overlay"><span class="gal-caption">At the Podium — Delivering a Landmark Lecture</span></div>
+      </div>
+      <div class="gal-item" data-cat="leadership">
+        <div class="gal-img g5"><img src="academic.jpg" alt="Image" style="width:100%; height:100%; object-fit:cover; display:block";></div>
+        <div class="gal-overlay"><span class="gal-caption">FUMUMSA seeks corporate & public support to boost growth</span></div>
+      </div>
+      <div class="gal-item" data-cat="clinical">
+        <div class="gal-img g2"><img src="academic.jpg" alt="Image" style="width:100%; height:100%; object-fit:cover; display:block";></div>
+        <div class="gal-overlay"><span class="gal-caption">Ward Rounds — OAU Teaching Hospital, Ile-Ife</span></div>
+      </div>
+      <div class="gal-item" data-cat="academic">
+        <div class="gal-img g4"><img src="academic.jpg" alt="Image" style="width:100%; height:100%; object-fit:cover; display:block";></div>
+        <div class="gal-overlay"><span class="gal-caption">Research Symposium — Nephrology Conference</span></div>
+      </div>
+      <div class="gal-item wide" data-cat="ceremony">
+        <div class="gal-img g6"><img src="academic.jpg" alt="Image" style="width:100%; height:100%; object-fit:cover; display:block";></div>
+        <div class="gal-overlay"><span class="gal-caption">Receiving Congratulations from Distinguished Guests</span></div>
+      </div>
+      <div class="gal-item" data-cat="leadership">
+        <div class="gal-img g7"><img src="academic.jpg" alt="Image" style="width:100%; height:100%; object-fit:cover; display:block";></div>
+        <div class="gal-overlay"><span class="gal-caption">Award Ceremony — Honours for Excellence in Medicine</span></div>
+      </div>
+      <div class="gal-item" data-cat="clinical">
+        <div class="gal-img g8"><img src="academic.jpg" alt="Image" style="width:100%; height:100%; object-fit:cover; display:block";></div>
+        <div class="gal-overlay"><span class="gal-caption">Dialysis Unit — Championing Kidney Care in Nigeria</span></div>
+      </div>
+      <div class="gal-item" data-cat="academic">
+        <div class="gal-img g1" style="opacity:0.75"><img src="academic.jpg" alt="Image" style="width:100%; height:100%; object-fit:cover; display:block";></div>
+        <div class="gal-overlay"><span class="gal-caption">Keynote Address — International Nephrology Summit</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div id="lightbox">
+    <div style="text-align:center;padding:2rem;" onclick="event.stopPropagation()">
+      <div id="lbContent" style="font-size:7rem;margin-bottom:1rem;"></div>
+      <p id="lbCaption" style="font-family:'EB Garamond',serif;color:rgba(255,255,255,0.78);font-style:italic;font-size:1.2rem;max-width:500px;margin:0 auto;"></p>
+      <p style="font-family:'Josefin Sans',sans-serif;color:rgba(255,255,255,0.28);font-size:0.58rem;letter-spacing:0.2em;margin-top:1.5rem;text-transform:uppercase;">Click outside to close</p>
+    </div>
+  </div>
+
+  <footer style="background:#050A07;border-top:1px solid rgba(184,134,11,0.08);">
+    <div class="footer-l">Obafemi Awolowo University, Ile-Ife, Osun State, Nigeria</div>
+    <div class="footer-r">Gallery · Prof. F. A. Arogundade</div>
+  </footer>
+</div>
+
+<!-- ==================
+     INAUGURAL LECTURE
+     ================== -->
+<div id="lecture" class="page">
+  <div class="lec-header">
+    <span class="eyebrow">📜 Inaugural Lecture — Full Text</span>
+    <h1>"Nephrology in Nigeria: From the Grassroots to the Frontiers — A Journey Through Kidney Disease, Health Policy and Academic Leadership"</h1>
+    <p style="font-family:'Josefin Sans',sans-serif;color:rgba(255,255,255,0.4);font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;margin-top:0.8rem;">Professor Fatiu Abiola Arogundade · Obafemi Awolowo University, Ile-Ife</p>
+
+    <div class="lec-controls">
+      <button class="ctrl-btn primary" id="playBtn" onclick="togglePlay()">▶ Begin Recitation</button>
+      <button class="ctrl-btn secondary" onclick="resetLecture()">↺ Reset</button>
+      <div class="speed-wrap">
+        <label>Speed:</label>
+        <select id="speedSel" onchange="changeSpeed()">
+          <option value="4000">Slow</option>
+          <option value="2500" selected>Normal</option>
+          <option value="1500">Fast</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="lec-progress">
+    <span class="prog-label">Progress</span>
+    <div class="prog-track"><div class="prog-fill" id="progFill"></div></div>
+    <span class="prog-pct" id="progPct">0%</span>
+  </div>
+
+  <div class="playhead-wrap" id="playheadWrap"></div>
+
+  <div class="lec-body" id="lecBody"></div>
+
+  <footer>
+    <div class="footer-l">Obafemi Awolowo University, Ile-Ife, Osun State, Nigeria</div>
+    <div class="footer-r">Inaugural Lecture · Prof. F. A. Arogundade</div>
+  </footer>
+</div>
+
+<script>
+/* ===========================
+   NAVIGATION
+   =========================== */
+function showPage(id, link, fromMobile = false) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-links a, .mobile-menu a').forEach(a => a.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  if (link) link.classList.add('active');
+  if (fromMobile) toggleMenu();
+  window.scrollTo(0, 0);
+}
+
+function toggleMenu() {
+  const hb = document.getElementById('hamburger');
+  const mm = document.getElementById('mobileMenu');
+  hb.classList.toggle('open');
+  mm.classList.toggle('open');
+}
+
+// Close menu on outside click
+document.addEventListener('click', (e) => {
+  const hb = document.getElementById('hamburger');
+  const mm = document.getElementById('mobileMenu');
+  if (!hb.contains(e.target) && !mm.contains(e.target)) {
+    hb.classList.remove('open');
+    mm.classList.remove('open');
+  }
+});
+
+/* ===========================
+   GALLERY
+   =========================== */
+function filterGal(cat, btn) {
+  document.querySelectorAll('.gal-cat').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.gal-item').forEach(item => {
+    item.style.display = (cat === 'all' || item.dataset.cat === cat) ? '' : 'none';
+  });
+}
+
+document.querySelectorAll('.gal-item').forEach(item => {
+  item.addEventListener('click', () => {
+    const lb = document.getElementById('lightbox');
+    document.getElementById('lbContent').textContent = item.querySelector('span').textContent;
+    document.getElementById('lbCaption').textContent = item.querySelector('.gal-caption').textContent;
+    lb.classList.add('open');
+  });
+});
+
+document.getElementById('lightbox').addEventListener('click', () => {
+  document.getElementById('lightbox').classList.remove('open');
+});
+
+/* ===========================
+   PUBLICATIONS
+   =========================== */
+function filterPubs(cat, btn) {
+  document.querySelectorAll('.f-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.pub-card').forEach(card => {
+    card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
+  });
+}
+
+const citeData = {
+  1: 'Arogundade, F. A., Adelusola, K. A., Ojogbo, S. O., & Akinsola, A. (2023). Prevalence and pattern of chronic kidney disease among hypertensive patients in southwest Nigeria: A multi-centre study. African Journal of Nephrology, 26(1), 14–22.',
+  2: 'Arogundade, F. A., & Barsoum, R. S. (2021). Acute kidney injury in sub-Saharan Africa: Epidemiology, outcomes and the challenge of dialysis access. Nature Reviews Nephrology, 17, 445–463.',
+  3: 'Arogundade, F. A., Sanusi, A. A., Hassan, M. O., & Akinsola, A. (2019). Malaria-associated acute kidney injury in Nigerian adults: Risk factors, outcomes and predictors of mortality. Nephrology Dialysis Transplantation, 34(8), 1320–1328.',
+  4: 'Arogundade, F. A., Sanusi, A. A., Okunola, O., & Akinsola, A. (2017). Sickle cell nephropathy in Nigerian adults: A prospective cross-sectional study. Annals of Ibadan Postgraduate Medicine, 15(2), 67–75.',
+  5: 'Arogundade, F. A., Sanusi, A. A., Hassan, M. O., & Akinsola, A. (2015). HIV-associated nephropathy in Nigeria: Clinical profile, histopathology and treatment outcomes. Saudi Journal of Kidney Diseases and Transplantation, 26(3), 481–490.',
+  6: 'Arogundade, F. A., Sanusi, A. A., Hassan, M. O., & Akinsola, A. (2013). Haemodialysis adequacy and nutritional status in end-stage renal disease patients at Ile-Ife, Nigeria. Nigerian Journal of Medicine, 22(1), 22–30.',
+  7: 'Arogundade, F. A. (2020). Chronic kidney disease in sub-Saharan Africa: Epidemiology, challenges and opportunities. In J. W. Stanifer & P. Eggers (Eds.), Kidney Disease in Disadvantaged Populations (pp. 212–240). Academic Press.',
+  8: 'Arogundade, F. A., & Sanusi, A. A. (Eds.). (2018). Clinical nephrology for African practitioners: A practical guide to kidney disease in resource-limited settings. OAU Press.',
+  9: 'Arogundade, F. A. et al. (2022). Roadmap for the integration of chronic kidney disease screening into Nigeria\'s primary healthcare system: A policy brief. Federal Ministry of Health Nigeria. Health Policy Research Series No. 14.',
+  10: 'Arogundade, F. A. (2016). Dialysis in Nigeria: Present state and future directions. In S. Naicker (Ed.), Nephrology in Africa (pp. 145–168). Springer.',
+  11: 'Arogundade, F. A., Olanrewaju, T. O., & Abiola, O. et al. (2020). Universal health coverage and kidney disease in Nigeria: Advocacy framework and cost analysis of dialysis subsidy schemes. West African Health Organisation Technical Report Series.',
+};
+
+function showCite(num) {
+  document.getElementById('citeText').textContent = citeData[num] || 'Citation not available.';
+  document.getElementById('citeModal').classList.add('open');
+}
+
+function closeCite() {
+  document.getElementById('citeModal').classList.remove('open');
+}
+
+function copyCite() {
+  const text = document.getElementById('citeText').textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.querySelector('.copy-btn');
+    const orig = btn.textContent;
+    btn.textContent = '✓ Copied!';
+    setTimeout(() => btn.textContent = orig, 2000);
+  });
+}
+
+document.getElementById('citeModal').addEventListener('click', (e) => {
+  if (e.target === document.getElementById('citeModal')) closeCite();
+});
+
+function downloadNotice(e) {
+  e.preventDefault();
+  const btn = e.target;
+  const orig = btn.textContent;
+  btn.textContent = '⚠ Contact OAU Library for full access';
+  setTimeout(() => btn.textContent = orig, 3000);
+}
+
+/* ===========================
+   LECTURE ENGINE
+   =========================== */
+const lectureBlocks = [
+  { type: 'heading', text: 'Preamble' },
+  { type: 'para', text: 'The Vice Chancellor, the Deputy Vice Chancellors, the Registrar, the Bursar, Deans of Faculties, Heads of Departments, Distinguished Professors, colleagues, esteemed guests, family, and friends — I stand before you today with profound gratitude, deep humility, and an overwhelming sense of the weight of this moment.' },
+  { type: 'para', text: 'An inaugural lecture is a rite of passage — a public testament of a lifetime of scholarly labour laid bare before one\'s peers, students, and community. It is both a celebration and an accounting. Today, I offer my accounting.' },
+  { type: 'para', text: 'To deliver an inaugural lecture at Obafemi Awolowo University — my alma mater, my professional home, and the institution that shaped everything I know about medicine, scholarship and human dignity — is a privilege that I do not take lightly.' },
+
+  { type: 'heading', text: 'I. Introduction: Why Nephrology?' },
+  { type: 'para', text: 'Nephrology is the study of the kidney — that remarkable, unassuming pair of organs, each no larger than a fist, that silently perform thousands of vital functions every second of every day. They filter our blood, regulate our blood pressure, balance our electrolytes, stimulate our red blood cell production, and maintain the fluid equilibrium on which life depends.' },
+  { type: 'para', text: 'When the kidney fails, the consequences are catastrophic and swift. Fluid accumulates. Toxins build. The heart is strained. Life itself hangs in the balance. And in a country like Nigeria — where chronic kidney disease is epidemic, where dialysis is inaccessible to the majority who need it, where kidney transplantation remains an aspiration for most — the burden of kidney disease is not merely medical. It is social, economic, and deeply moral.' },
+  { type: 'para', text: 'I chose nephrology because I was drawn to this complexity. I was drawn to the patients — many of them young, many of them poor, many of them arriving at our hospitals in late stages of disease that could have been prevented. I was drawn to the challenge of building a discipline almost from scratch in an environment where the infrastructure, the funding and sometimes the political will were all in short supply.' },
+
+  { type: 'heading', text: 'II. Kidney Disease in Nigeria — The Epidemiological Reality' },
+  { type: 'para', text: 'The burden of chronic kidney disease (CKD) in Nigeria is staggering. Studies have estimated a prevalence of CKD between 8% and 22% in various Nigerian communities — figures that place us among the countries with the highest burden of kidney disease in the world. Yet, paradoxically, awareness is desperately low, access to care is grossly inadequate, and the disease continues to claim lives silently and unnecessarily.' },
+  { type: 'para', text: 'The major drivers of CKD in Nigeria include hypertension, diabetes mellitus, HIV-associated nephropathy, sickle cell nephropathy, glomerulonephritis, and the widespread use of herbal remedies and analgesics with nephrotoxic potential. Unlike high-income countries where dialysis and transplantation are routinely accessible, in Nigeria, end-stage kidney disease is very often a death sentence.' },
+  { type: 'para', text: 'Our research at the Obafemi Awolowo University Teaching Hospital Complex has contributed to documenting this burden — profiling the pattern, prevalence, risk factors and outcomes of kidney diseases in Yorubaland and more broadly in Nigeria. These data are not merely academic. They have informed clinical practice, shaped training curricula, and guided advocacy for better policy.' },
+
+  { type: 'heading', text: 'III. Clinical Nephrology at OAUTHC — Building a Service' },
+  { type: 'para', text: 'When I began my clinical work at the OAU Teaching Hospital, the nephrology service was in its formative years. The dialysis unit was small, the equipment was often unreliable, and the human resource base was thin. But what we lacked in resources, we more than compensated for in dedication, creativity, and a shared belief in what was possible.' },
+  { type: 'para', text: 'Over the years, we built the renal unit into a functioning centre that provides haemodialysis, peritoneal dialysis, and renal biopsy services, and that contributed to the initiation of a renal transplantation programme. We trained resident doctors, nurses, and dialysis technicians. We forged partnerships with international nephrology societies. We wrote grants and attracted research funding. None of this was easy, and none of it was done alone.' },
+  { type: 'para', text: 'I pay tribute here to my teachers, who laid the foundations. I pay tribute to my colleagues and collaborators — a remarkable team of men and women whose invisible labour animates every headline achievement. And I pay tribute to my patients — who taught me more about resilience, suffering, dignity and hope than any textbook ever could.' },
+
+  { type: 'heading', text: 'IV. Research — Generating Knowledge for African Realities' },
+  { type: 'para', text: 'Research in nephrology in Nigeria cannot be a luxury or an afterthought. It must be the backbone of our practice. We cannot import clinical protocols designed for European populations and impose them uncritically on Nigerian patients who present differently, who have different comorbidities, different genetic backgrounds, different social determinants of health, and who cannot afford the treatments those protocols presuppose.' },
+  { type: 'para', text: 'My research programme has focused on generating evidence that is grounded in African realities. We have studied the natural history of CKD in our population. We have examined the outcomes of acute kidney injury in the context of tropical infections — malaria, leptospirosis, sepsis. We have investigated the relationship between hypertension, proteinuria and renal outcomes in Nigerians. We have looked at the barriers to dialysis access and adherence.' },
+  { type: 'para', text: 'This body of work has not merely added to the literature. It has, I believe, contributed to changing how we think about kidney disease in sub-Saharan Africa — arguing that we need African solutions for African problems, built on African data, and responsive to African contexts.' },
+
+  { type: 'heading', text: 'V. Teaching — The Sacred Responsibility' },
+  { type: 'para', text: 'I have always believed that teaching is the most consequential thing a professor does. Research produces knowledge. But teaching multiplies it. Every student I have trained, every resident I have mentored, every young nephrologist I have shaped — each one of them now carries forward not just facts and techniques, but ways of thinking, habits of care, and standards of excellence.' },
+  { type: 'para', text: 'Teaching nephrology is to teach precision. The kidney operates by extraordinarily tight tolerances. A sodium of 120 can kill. A potassium of seven can stop the heart. A pH below 7.1 is a medical emergency. To train a nephrologist is to train someone who is comfortable with complexity, who thinks quantitatively, who acts swiftly and decisively, but who never stops asking why.' },
+  { type: 'para', text: 'I have found tremendous joy in watching my students surpass me. There is no greater reward in academic medicine. Some of them are in this hall today, and I am proud of every single one of them.' },
+
+  { type: 'heading', text: 'VI. Academic Leadership — Building FUMUMSA' },
+  { type: 'para', text: 'The appointment as Pioneer Vice Chancellor of the Federal University of Medicine and Medical Sciences, Abeokuta, represented a summons that I could not refuse — not because I was certain of success, but because I believed in the mission. Nigeria needs more medical universities. We need institutions that are single-mindedly focused on health sciences, that produce the doctors, nurses, pharmacists, and public health professionals that our population desperately needs.' },
+  { type: 'para', text: 'Building FUMUMSA from ground zero — establishing governance structures, recruiting faculty, developing curricula, negotiating accreditation, setting up clinical training affiliations, building physical infrastructure — has been the most demanding and simultaneously the most rewarding work of my professional life.' },
+  { type: 'para', text: 'It has taught me that academic leadership is ultimately an act of faith. You make decisions in conditions of uncertainty. You inspire people to believe in a vision they cannot yet fully see. You build systems designed to outlast you. And you hold the line on standards, integrity, and excellence — not because it is easy, but because no institution worth its name can afford to compromise on these fundamentals.' },
+
+  { type: 'heading', text: 'VII. Health Policy — Speaking Truth to Power' },
+  { type: 'para', text: 'The physician who retreats entirely into the clinic, who refuses to engage with policy, who will not speak the uncomfortable truths that data reveal, is abdicating a fundamental professional responsibility. The health of a population is shaped overwhelmingly not by what happens in hospitals, but by what happens in government ministries, finance boards, and legislative chambers.' },
+  { type: 'para', text: 'Universal health coverage in Nigeria remains an aspiration. The absence of functional national health insurance means that the catastrophic cost of kidney disease — dialysis alone costs far more than the average Nigerian\'s annual income — falls entirely on families, often driving them into destitution. We have a moral obligation to change this, and physicians must be part of the conversation.' },
+  { type: 'para', text: 'I have tried, in my career, to be that voice. Through policy advisory roles, through publications, through public lectures, and through advocacy — arguing that kidney disease prevention is possible, that CKD screening should be built into our primary health care system, and that dialysis must be subsidised for those who cannot afford it.' },
+
+  { type: 'heading', text: 'VIII. Conclusion — From the Grassroots to the Frontiers' },
+  { type: 'para', text: 'I began this lecture by asking you to consider a simple proposition: that the story of nephrology in Nigeria is, at its core, a story about people. It is a story about patients who came to us in crisis, and who trusted us with their lives. It is a story about students and trainees who gave years of their youth to mastering a difficult discipline, believing that it would make them better healers. It is a story about colleagues who built, brick by brick, services and systems where none existed before.' },
+  { type: 'para', text: 'The journey from the grassroots — from those early years of improvisation, of inadequate equipment and scarce drugs, of patients who could not afford dialysis and so quietly went home to die — to the frontiers, where our research is cited internationally, where our trainees practise at the highest levels, where we are building a new medical university — that journey is the great privilege of my professional life.' },
+  { type: 'para', text: 'And yet, the work is far from done. Nigeria\'s burden of kidney disease is still enormous. Our dialysis capacity is still woefully inadequate. Our transplant programme is still embryonic. Our medical university landscape still needs to grow. There are frontiers still to be crossed, and I trust that the men and women in this hall — my students, my colleagues, my successors — will cross them.' },
+  { type: 'para', text: 'To the Vice Chancellor, I thank you and the University for this honour. To my family — my pillar, my ground, my everything — words fail me, but you know what you mean to me. To this University, my alma mater, my professional home: it has been the honour of my life to be yours.' },
+  { type: 'para', text: 'Thank you. Ẹ ṣéun. E kú irọlẹ o.' },
+];
+
+let curIdx = -1;
+let playing = false;
+let timer = null;
+let spd = 2500;
+
+function buildLecture() {
+  const body = document.getElementById('lecBody');
+  const wrap = document.getElementById('playheadWrap');
+  body.innerHTML = ''; wrap.innerHTML = '';
+
+  lectureBlocks.forEach((block, i) => {
+    const el = document.createElement(block.type === 'heading' ? 'h2' : 'p');
+    el.textContent = block.text;
+    el.className = block.type === 'heading' ? 'lec-heading future' : 'lec-para future';
+    el.id = 'blk-' + i;
+    body.appendChild(el);
+
+    if (block.type === 'heading') {
+      const seg = document.createElement('div');
+      seg.className = 'ph-seg';
+      seg.title = block.text;
+      seg.dataset.idx = i;
+      seg.onclick = () => jumpTo(i);
+      wrap.appendChild(seg);
+    }
+  });
+}
+
+function updateProgress() {
+  const total = lectureBlocks.length - 1;
+  const pct = Math.max(0, Math.round((curIdx / total) * 100));
+  document.getElementById('progFill').style.width = pct + '%';
+  document.getElementById('progPct').textContent = pct + '%';
+
+  document.querySelectorAll('.ph-seg').forEach(seg => {
+    const idx = parseInt(seg.dataset.idx);
+    seg.className = idx < curIdx ? 'ph-seg done' : idx === curIdx ? 'ph-seg current' : 'ph-seg';
+  });
+}
+
+function advanceTo(idx) {
+  if (idx >= lectureBlocks.length) {
+    stopPlay();
+    document.getElementById('playBtn').textContent = '✓ Lecture Complete';
+    return;
+  }
+
+  lectureBlocks.forEach((_, i) => {
+    const el = document.getElementById('blk-' + i);
+    if (!el) return;
+    const base = lectureBlocks[i].type === 'heading' ? 'lec-heading' : 'lec-para';
+    el.className = i < idx ? base + ' past' : i === idx ? base + ' current' : base + ' future';
+  });
+
+  curIdx = idx;
+  const cur = document.getElementById('blk-' + idx);
+  if (cur) cur.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  updateProgress();
+}
+
+function togglePlay() {
+  playing ? stopPlay() : startPlay();
+}
+
+function startPlay() {
+  playing = true;
+  document.getElementById('playBtn').textContent = '⏸ Pause';
+  if (curIdx < 0) curIdx = 0;
+  advanceTo(curIdx);
+  timer = setInterval(() => advanceTo(curIdx + 1), spd);
+}
+
+function stopPlay() {
+  playing = false;
+  clearInterval(timer);
+  document.getElementById('playBtn').textContent = '▶ Resume Recitation';
+}
+
+function resetLecture() {
+  stopPlay();
+  curIdx = -1;
+  document.getElementById('playBtn').textContent = '▶ Begin Recitation';
+  document.getElementById('progFill').style.width = '0%';
+  document.getElementById('progPct').textContent = '0%';
+  lectureBlocks.forEach((_, i) => {
+    const el = document.getElementById('blk-' + i);
+    if (!el) return;
+    el.className = (lectureBlocks[i].type === 'heading' ? 'lec-heading' : 'lec-para') + ' future';
+  });
+  document.querySelectorAll('.ph-seg').forEach(s => s.className = 'ph-seg');
+  window.scrollTo(0, 0);
+}
+
+function jumpTo(idx) {
+  if (playing) stopPlay();
+  curIdx = idx;
+  advanceTo(idx);
+}
+
+function changeSpeed() {
+  spd = parseInt(document.getElementById('speedSel').value);
+  if (playing) {
+    clearInterval(timer);
+    timer = setInterval(() => advanceTo(curIdx + 1), spd);
+  }
+}
+
+buildLecture();
+</script>
+</body>
+</html>
